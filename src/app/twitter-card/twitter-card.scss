@@ -1,0 +1,163 @@
+.download-btn {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  background-color: #1d9bf0;
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.twt {
+  float: center;
+  max-width: 450px;
+  min-width: 300px;
+  margin: 0em auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Ubuntu,
+    'Helvetica Neue',
+    sans-serif;
+}
+
+.twt-header {
+  overflow: hidden;
+  margin: 1.286rem 0 0.5em 0;
+}
+
+.twt-icon-container {
+  float: left;
+}
+
+.twt-icon {
+  border-radius: 50%;
+  width: 3.5em;
+}
+
+.twt-iconquote {
+  border-radius: 50%;
+  width: 2em;
+}
+
+.twt-id {
+  font-size: 1em;
+  padding-left: 1em;
+  overflow: hidden;
+}
+
+.twt-name {
+  font-weight: bold;
+}
+
+.twt-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.twt-handle {
+  color: #657786;
+}
+
+.twt-handle:hover {
+  cursor: pointer;
+}
+
+.twt-content {
+  font-size: 1.3em;
+}
+
+.twt-contentquote {
+  margin: -1em 0 1rem 0;
+  font-size: 1em;
+}
+
+.twt-timestamp {
+  color: #657786;
+  font-size: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+hr.twt-sep,
+hr.twt-sep-reply {
+  border: none;
+  height: 1px;
+  width: 100%;
+  background-color: #e6e6e6;
+}
+
+hr.twt-sep-reply {
+  margin-left: -20px;
+  padding-right: 40px;
+}
+
+.twt-stat1 {
+  color: #657786;
+  font-size: 0.9em;
+  margin: 1.286rem 0;
+}
+
+.twt-quotebox {
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+}
+
+.twt-image {
+  float: center;
+  max-width: 100%;
+  border: 1px solid #c7c7c7;
+  border-radius: 10px;
+}
+
+.twt-replybox {
+  // margin-top: -2em;
+}
+
+.twt-icon-replycontainer {
+  float: left;
+}
+
+.twt-replycontainer {
+  padding-left: 1em;
+  overflow: hidden;
+}
+
+.twt-replycontent {
+  // margin-top: -1em;
+}
+
+.twt-stat2 {
+  color: #657786;
+  font-size: 0.9em;
+  // margin-top: -1em;
+}
+
+.twt-social {
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 0.5em;
+}
+
+.twt-socialimg {
+  height: 13px;
+  margin-right: 3px;
+}
+
+.twt-hl {
+  color: #1da1f2;
+}
+
+.twt-hl:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,59 +1,9 @@
-# Ao3TwitterGenerator
+# Ao3 Twitter Template Generator
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+![preview-image](public/app-preview.png)
 
-## Development server
+This project was developed based on [starskin's Twitter Work Skin: Tweets & Profile (newest layout)](https://archiveofourown.org/works/26754208/chapters/65268931#main).
 
-To start a local development server, run:
+Before using the template generated from here, you need to set up your workskin according to the instructions provided in the above link!
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+DO NOT copy the styles from this app to add onto your workskin, but make sure to use the one provided by starskin. The ones used here are used to simulate what it would end up looking, however will not work directly in ao3, as there are overrides present that the original skin cancels out.

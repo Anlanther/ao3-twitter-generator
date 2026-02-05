@@ -1,0 +1,25 @@
+<div class="twt-quotebox">
+  <div class="twt-header">
+    <div class="twt-icon-container">
+      <img class="twt-iconquote" [src]="userImage()" />
+    </div>
+
+    <div class="twt-id">
+      <span class="twt-name"
+        >{{ userUsername() }}
+        @if (isVerified()) {
+          <img class="twt-socialimg" src="https://i.imgur.com/wStuVM9.png" />
+        }
+      </span>
+      <span class="twt-handle">@{{ userHandle() }} · {{ date() }}</span>
+    </div>
+  </div>
+
+  <div class="twt-contentquote">
+    <app-content [message]="message()"></app-content>
+  </div>
+
+  @if (hasImage()) {
+    <app-image [url]="imageUrl()"></app-image>
+  }
+</div>

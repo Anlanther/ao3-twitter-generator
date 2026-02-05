@@ -1,0 +1,63 @@
+@let replies = replies$ | async;
+
+<button (click)="downloadHtmlAsFile()" class="download-btn">Download HTML</button>
+
+<div class="twt" #cardContainer>
+  <div class="twt-header">
+    <div class="twt-icon-container">
+      <img class="twt-icon" [src]="userImage$ | async" />
+    </div>
+
+    <div class="twt-id">
+      <span class="twt-name">{{ userHandle$ | async }} </span>
+      @if (isVerified$ | async) {
+        <img class="twt-socialimg" src="https://i.imgur.com/wStuVM9.png" />
+      }
+      <br />
+      <span class="twt-handle">@{{ username$ | async }}</span>
+    </div>
+  </div>
+
+  <div class="twt-content">
+    <app-content [message]="(message$ | async) ?? ''"></app-content>
+  </div>
+
+  @if (hasImage$ | async) {
+    <app-image [url]="(imageUrl$ | async) ?? ''"></app-image>
+  }
+  @if (hasQuote$ | async) {
+    <app-quote
+      [userHandle]="(quoteUserHandle$ | async) ?? ''"
+      [userUsername]="(quoteUsername$ | async) ?? ''"
+      [userImage]="(quoteUserImage$ | async) ?? ''"
+      [isVerified]="(quoteIsVerified$ | async) ?? false"
+      [date]="(quoteDate$ | async) ?? ''"
+      [message]="(quoteMessage$ | async) ?? ''"
+      [hasImage]="(quoteHasImage$ | async) ?? false"
+      [imageUrl]="(quoteImageUrl$ | async) ?? ''"
+    ></app-quote>
+  }
+
+  <div class="twt-timestamp">{{ time$ | async }} · {{ date$ | async }}</div>
+
+  <hr class="twt-sep" />
+  <div class="twt-stat1">
+    <strong>{{ (retweets$ | async) ?? 0 | numberTransformer }}</strong> Retweets &nbsp;&nbsp;
+    <strong>{{ (quotes$ | async) ?? 0 | numberTransformer }}</strong> Quote Tweets &nbsp;&nbsp;
+    <strong>{{ (likes$ | async) ?? 0 | numberTransformer }}</strong> Likes
+  </div>
+  @for (reply of replies; track $index) {
+    <hr class="twt-sep-reply" />
+
+    <app-reply
+      [user]="reply.user"
+      [replyTo]="reply.replyTo"
+      [imageStatus]="reply.imageStatus"
+      [message]="reply.message"
+      [replyNumber]="reply.replyNumber"
+      [shareNumber]="reply.shareNumber"
+      [likeNumber]="reply.likeNumber"
+      [date]="reply.date"
+    ></app-reply>
+  }
+</div>

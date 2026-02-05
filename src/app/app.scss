@@ -1,0 +1,14 @@
+.twitter-generator {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: #f7f9fa;
+
+  app-form-menu {
+    flex: 1;
+  }
+
+  app-twitter-card {
+    flex: 2;
+  }
+}

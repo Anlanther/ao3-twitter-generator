@@ -1,0 +1,164 @@
+<div class="form-section">
+  <form [formGroup]="form" class="twitter-form">
+    <h2>Main Tweet</h2>
+
+    <label>Avatar URL</label>
+    <input type="text" formControlName="userIcon" class="form-control" />
+
+    <label>Name</label>
+    <input type="text" formControlName="userName" class="form-control" />
+    <label>Handle</label>
+    <input type="text" formControlName="userHandle" class="form-control" />
+
+    <label>
+      <input type="checkbox" formControlName="isVerified" class="form-check-input" />
+      User is Verified
+    </label>
+    <br />
+
+    <label>Tweet Content</label>
+    <textarea formControlName="message" class="form-control" rows="3"></textarea>
+    <small class="form-text"
+      >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
+    >
+
+    <div class="image-form">
+      <label>
+        <input type="checkbox" formControlName="hasImage" class="form-check-input" />
+        Add Image
+      </label>
+      <br />
+      @if (form.get('hasImage')?.value) {
+        <label>Image URL</label>
+        <input type="text" formControlName="imageUrl" class="form-control" />
+      }
+    </div>
+
+    <h3>Stats</h3>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <label>Retweets</label>
+          <input type="number" formControlName="retweets" class="form-control" />
+        </div>
+        <div class="col">
+          <label>Quote Tweets</label>
+          <input type="number" formControlName="quotes" class="form-control" />
+        </div>
+        <div class="col">
+          <label>Likes</label>
+          <input type="number" formControlName="likes" class="form-control" />
+        </div>
+      </div>
+    </div>
+
+    <h3>Quote Tweet</h3>
+    <div class="quote-form">
+      <label>
+        <input type="checkbox" formControlName="hasQuote" class="form-check-input" />
+        Add Quote Tweet
+      </label>
+
+      <br />
+      @if (form.get('hasQuote')?.value) {
+        <label>Quoted User Avatar URL</label>
+        <input type="text" formControlName="quoteUserIcon" class="form-control" />
+
+        <label>Quoted Handle</label>
+        <input type="text" formControlName="quoteUserName" class="form-control" />
+        <label>Quoted Name</label>
+        <input type="text" formControlName="quoteUserHandle" class="form-control" />
+
+        <label>Quoted Timestamp</label>
+        <input type="text" formControlName="quoteTimestamp" class="form-control" />
+
+        <label>Quoted Content</label>
+        <textarea formControlName="quoteContent" class="form-control" rows="2"></textarea>
+        <small class="form-text"
+          >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
+        >
+        <br />
+        <label>
+          <input type="checkbox" formControlName="quoteIsVerified" class="form-check-input" />
+          Quoted User is Verified
+        </label>
+        <br />
+
+        <label>
+          <input type="checkbox" formControlName="quoteHasImage" class="form-check-input" />
+          Add Images to Quote
+        </label>
+        <br />
+
+        @if (form.get('quoteHasImage')?.value) {
+          <label>Quote Image URL</label>
+          <input type="text" formControlName="quoteImage" class="form-control" />
+        }
+      }
+    </div>
+
+    <h2>Replies</h2>
+
+    <div formArrayName="replies" class="replies-array">
+      @for (reply of repliesArray.controls; track $index; let i = $index) {
+        <div [formGroupName]="i" class="reply-form-group">
+          <h3>Reply {{ i + 1 }}</h3>
+
+          <label>Reply User Avatar URL</label>
+          <input type="text" formControlName="userIcon" class="form-control" />
+
+          <label>Reply User Name</label>
+          <input type="text" formControlName="userName" class="form-control" />
+          <label>Reply User Handle</label>
+          <input type="text" formControlName="userHandle" class="form-control" />
+          <label>Reply To</label>
+          <input type="text" formControlName="replyTo" class="form-control" />
+
+          <label>
+            <input type="checkbox" formControlName="isVerified" class="form-check-input" />
+            Reply User is Verified
+          </label>
+          <br />
+          <label>Reply Message</label>
+          <textarea formControlName="message" class="form-control" rows="2"></textarea>
+          <small class="form-text"
+            >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
+          >
+          <br />
+          <label>
+            <input type="checkbox" formControlName="hasImage" class="form-check-input" />
+            Add Image to Reply
+          </label>
+          <br />
+          @if (form.get('replies')?.get(i.toString())?.get('hasImage')?.value) {
+            <label>Reply Image URL</label>
+            <input type="text" formControlName="imageUrl" class="form-control" />
+          }
+
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <label>Replies</label>
+                <input type="number" formControlName="replyNumber" class="form-control" />
+              </div>
+              <div class="col">
+                <label>Shares</label>
+                <input type="number" formControlName="shareNumber" class="form-control" />
+              </div>
+              <div class="col">
+                <label>Likes</label>
+                <input type="number" formControlName="likeNumber" class="form-control" />
+              </div>
+            </div>
+          </div>
+
+          <button type="button" (click)="removeReply(i)" class="btn btn-danger btn-sm">
+            Remove Reply
+          </button>
+        </div>
+      }
+    </div>
+
+    <button type="button" (click)="addReply()" class="btn btn-primary btn-sm">+ Add Reply</button>
+  </form>
+</div>
