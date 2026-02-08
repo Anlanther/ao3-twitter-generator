@@ -11,4 +11,18 @@
   app-twitter-card {
     flex: 2;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    app-form-menu {
+      flex: 0;
+      order: 2;
+    }
+
+    app-twitter-card {
+      flex: 0;
+      order: 1;
+    }
+  }
 }
