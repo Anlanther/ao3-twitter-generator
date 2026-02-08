@@ -17,6 +17,10 @@
       <app-content [message]="message()"></app-content>
     </div>
 
+    @if (imageStatus().hasImage) {
+      <app-image [url]="imageUrl"></app-image>
+    }
+
     <div class="twt-stat2">
       <div class="twt-social">
         <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png" />{{ replyNumber() }}

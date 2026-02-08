@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { ImageStatus } from '../../models/image-status.model';
+import { HasImage, ImageStatus } from '../../models/image-status.model';
 import { TwitterUser } from '../../models/twitter-user.model';
 import { Content } from '../content/content';
+import { Image } from '../image/image';
 
 @Component({
   selector: 'app-reply',
-  imports: [CommonModule, Content],
+  imports: [CommonModule, Content, Image],
   templateUrl: './reply.html',
   styleUrl: './reply.scss',
 })
@@ -19,4 +20,13 @@ export class Reply {
   shareNumber = input.required<number>();
   likeNumber = input.required<number>();
   date = input.required<string>();
+
+  get imageUrl(): string {
+    const hasImage = this.imageStatus().hasImage;
+    if (!hasImage) {
+      return '';
+    }
+
+    return (this.imageStatus() as HasImage).url;
+  }
 }
