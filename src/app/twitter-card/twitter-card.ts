@@ -52,11 +52,11 @@ export class TwitterCard {
 
     htmlContent = htmlContent.replace(/<!--.*?-->/g, '');
 
-    const blob = new Blob([htmlContent], { type: 'text/html' });
+    const blob = new Blob([htmlContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `twitter-card-${new Date().getTime()}.html`;
+    link.download = `twitter-card-${new Date().getTime()}.txt`;
     link.click();
     URL.revokeObjectURL(url);
   }
