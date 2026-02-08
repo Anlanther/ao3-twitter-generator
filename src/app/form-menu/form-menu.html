@@ -21,6 +21,11 @@
     <small class="form-text"
       >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
     >
+    <br />
+    <label>Time</label>
+    <input type="text" formControlName="time" class="form-control" />
+    <label>Date</label>
+    <input type="text" formControlName="date" class="form-control" />
 
     <div class="image-form">
       <label>
@@ -104,22 +109,22 @@
         <div [formGroupName]="i" class="reply-form-group">
           <h3>Reply {{ i + 1 }}</h3>
 
-          <label>Reply User Avatar URL</label>
+          <label>Reply {{ i + 1 }} User Avatar URL</label>
           <input type="text" formControlName="userIcon" class="form-control" />
 
-          <label>Reply User Name</label>
+          <label>Reply {{ i + 1 }} Name</label>
           <input type="text" formControlName="userName" class="form-control" />
-          <label>Reply User Handle</label>
+          <label>Reply {{ i + 1 }} Handle</label>
           <input type="text" formControlName="userHandle" class="form-control" />
-          <label>Reply To</label>
+          <label>Reply {{ i + 1 }} To</label>
           <input type="text" formControlName="replyTo" class="form-control" />
 
           <label>
             <input type="checkbox" formControlName="isVerified" class="form-check-input" />
-            Reply User is Verified
+            Reply {{ i + 1 }} User is Verified
           </label>
           <br />
-          <label>Reply Message</label>
+          <label>Reply {{ i + 1 }} Message</label>
           <textarea formControlName="message" class="form-control" rows="2"></textarea>
           <small class="form-text"
             >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
@@ -127,33 +132,33 @@
           <br />
           <label>
             <input type="checkbox" formControlName="hasImage" class="form-check-input" />
-            Add Image to Reply
+            Add Image to Reply {{ i + 1 }}
           </label>
           <br />
           @if (form.get('replies')?.get(i.toString())?.get('hasImage')?.value) {
-            <label>Reply Image URL</label>
+            <label>Reply {{ i + 1 }} Image URL</label>
             <input type="text" formControlName="imageUrl" class="form-control" />
           }
 
           <div class="container">
             <div class="row">
               <div class="col">
-                <label>Replies</label>
+                <label>{{ i + 1 }} Replies</label>
                 <input type="number" formControlName="replyNumber" class="form-control" />
               </div>
               <div class="col">
-                <label>Shares</label>
+                <label>{{ i + 1 }} Shares</label>
                 <input type="number" formControlName="shareNumber" class="form-control" />
               </div>
               <div class="col">
-                <label>Likes</label>
+                <label>{{ i + 1 }} Likes</label>
                 <input type="number" formControlName="likeNumber" class="form-control" />
               </div>
             </div>
           </div>
 
           <button type="button" (click)="removeReply(i)" class="btn btn-danger btn-sm">
-            Remove Reply
+            Remove Reply {{ i + 1 }}
           </button>
         </div>
       }

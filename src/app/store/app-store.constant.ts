@@ -17,12 +17,27 @@ export const initialState: AppState = {
   retweets: 0,
   quotes: 0,
   likes: 0,
+  quoteStatus: {
+    hasQuote: true,
+    user: {
+      handle: 'quoteuser',
+      username: 'quote user',
+      image: 'https://i.imgur.com/D0aVIAd.png',
+      isVerified: false,
+    },
+    date: 'Sept 5',
+    message: "I'm donkey!",
+    imageStatus: {
+      hasImage: true,
+      url: 'https://i.postimg.cc/Jzz3jRyF/chains-breaking-meme.jpg',
+    },
+  },
   replies: [
     {
       user: {
-        handle: 'Reply User',
-        username: 'replyuser',
-        image: 'https://i.imgur.com/D0aVIAd.png',
+        handle: 'replyuser',
+        username: 'reply user',
+        image: 'https://i.postimg.cc/JhH0ZFRJ/lil-duck-thing-with-knife.jpg',
         isVerified: false,
       },
       imageStatus: {
@@ -37,19 +52,4 @@ export const initialState: AppState = {
       replyTo: 'exampleuser',
     },
   ],
-  quoteStatus: {
-    hasQuote: true,
-    user: {
-      handle: 'Quote User',
-      username: 'quoteuser',
-      image: 'https://i.imgur.com/D0aVIAd.png',
-      isVerified: false,
-    },
-    date: 'Sept 5',
-    message: "I'm donkey!",
-    imageStatus: {
-      hasImage: true,
-      url: 'https://media1.tenor.com/images/434bedd934f43e68f4d5392ba78174f8/tenor.gif',
-    },
-  },
 };
