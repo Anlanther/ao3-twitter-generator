@@ -1,6 +1,13 @@
 @let replies = replies$ | async;
 
-<button (click)="downloadHtmlAsFile()" class="download-btn">Download HTML</button>
+<div class="action-bar">
+  <button (click)="downloadHtmlAsFile()" class="download-btn">Download HTML</button>
+  <a
+    href="https://github.com/Anlanther/ao3-twitter-generator/blob/main/README.md"
+    class="instructions-btn"
+    >Usage Instructions</a
+  >
+</div>
 
 <div class="twt" #cardContainer>
   <div class="twt-header">

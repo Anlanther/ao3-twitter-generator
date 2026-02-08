@@ -1,11 +1,17 @@
-.download-btn {
-  display: block;
-  margin: 0 auto 20px;
-  padding: 10px 20px;
-  background-color: #1d9bf0;
-  color: white;
-  border: none;
-  border-radius: 20px;
+.action-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 1rem;
+
+  .download-btn {
+    padding: 10px 20px;
+    background-color: #1d9bf0;
+    color: white;
+    border: none;
+    border-radius: 20px;
+  }
 }
 
 .twt {
