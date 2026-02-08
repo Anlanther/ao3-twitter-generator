@@ -48,7 +48,9 @@ export class TwitterCard {
     if (!element) return;
 
     const shadowRoot = element.parentElement?.querySelector('app-twitter-card')?.shadowRoot;
-    const htmlContent = shadowRoot ? `${shadowRoot.innerHTML}` : `${element.outerHTML}`;
+    let htmlContent = shadowRoot ? `${shadowRoot.innerHTML}` : `${element.outerHTML}`;
+
+    htmlContent = htmlContent.replace(/<!--.*?-->/g, '');
 
     const blob = new Blob([htmlContent], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
