@@ -2,12 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { HasImage, ImageStatus } from '../../models/image-status.model';
 import { TwitterUser } from '../../models/twitter-user.model';
+import { NumberTransformerPipe } from '../../pipes/number-transformer.pipe';
 import { Content } from '../content/content';
 import { Image } from '../image/image';
 
 @Component({
   selector: 'app-reply',
-  imports: [CommonModule, Content, Image],
+  imports: [CommonModule, Content, Image, NumberTransformerPipe],
   templateUrl: './reply.html',
   styleUrl: './reply.scss',
 })

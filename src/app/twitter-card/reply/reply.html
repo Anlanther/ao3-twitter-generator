@@ -23,15 +23,21 @@
 
     <div class="twt-stat2">
       <div class="twt-social">
-        <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png" />{{ replyNumber() }}
+        <img class="twt-socialimg" src="https://i.imgur.com/dJg9v1v.png" />{{
+          replyNumber() | numberTransformer
+        }}
       </div>
 
       <div class="twt-social">
-        <img class="twt-socialimg" src="https://i.imgur.com/UeOnwXk.png" />{{ shareNumber() }}
+        <img class="twt-socialimg" src="https://i.imgur.com/UeOnwXk.png" />{{
+          shareNumber() | numberTransformer
+        }}
       </div>
 
       <div class="twt-social">
-        <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png" />{{ likeNumber() }}
+        <img class="twt-socialimg" src="https://i.imgur.com/eM56CN2.png" />{{
+          likeNumber() | numberTransformer
+        }}
       </div>
     </div>
   </div>
