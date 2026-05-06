@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Footer } from './footer/footer';
 import { FormMenu } from './form-menu/form-menu';
 import { TwitterCard } from './twitter-card/twitter-card';
 
 @Component({
   selector: 'app-root',
-  imports: [TwitterCard, FormMenu],
+  imports: [TwitterCard, FormMenu, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
