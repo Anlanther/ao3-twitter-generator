@@ -29,7 +29,7 @@ export const initialState: AppState = {
     message: "I'm donkey!",
     imageStatus: {
       hasImage: true,
-      url: 'https://i.postimg.cc/Jzz3jRyF/chains-breaking-meme.jpg',
+      url: 'https://i.pinimg.com/originals/e0/bc/b1/e0bcb1ce0dbbacade677fa52788cf005.jpg',
     },
   },
   replies: [
@@ -37,7 +37,7 @@ export const initialState: AppState = {
       user: {
         handle: 'replyuser',
         username: 'reply user',
-        image: 'https://i.postimg.cc/JhH0ZFRJ/lil-duck-thing-with-knife.jpg',
+        image: 'https://i.imgur.com/GJB38Dv.jpg',
         isVerified: false,
       },
       imageStatus: {
