@@ -1,6 +1,13 @@
 <div class="form-section">
   <form [formGroup]="form" class="twitter-form">
-    <h2>Main Tweet</h2>
+    <div class="main-heading d-flex justify-content-between align-items-center">
+      <h2>Main Tweet</h2>
+      <a
+        href="https://github.com/Anlanther/ao3-twitter-generator/blob/main/README.md"
+        class="instructions-btn"
+        >Usage Instructions</a
+      >
+    </div>
 
     <label>Avatar URL</label>
     <input type="text" formControlName="userIcon" class="form-control" />
@@ -18,10 +25,6 @@
 
     <label>Tweet Content</label>
     <textarea formControlName="message" class="form-control" rows="3"></textarea>
-    <small class="form-text"
-      >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
-    >
-    <br />
     <label>Time</label>
     <input type="text" formControlName="time" class="form-control" />
     <label>Date</label>
@@ -79,10 +82,6 @@
 
         <label>Quoted Content</label>
         <textarea formControlName="quoteContent" class="form-control" rows="2"></textarea>
-        <small class="form-text"
-          >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
-        >
-        <br />
         <label>
           <input type="checkbox" formControlName="quoteIsVerified" class="form-check-input" />
           Quoted User is Verified
@@ -104,67 +103,83 @@
 
     <h2>Replies</h2>
 
-    <div formArrayName="replies" class="replies-array">
-      @for (reply of repliesArray.controls; track $index; let i = $index) {
-        <div [formGroupName]="i" class="reply-form-group">
-          <h3>Reply {{ i + 1 }}</h3>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div formArrayName="replies" class="replies-array">
+        @for (reply of repliesArray.controls; track $index; let i = $index) {
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapse-' + i"
+                aria-expanded="true"
+                [attr.aria-controls]="'collapse-' + i"
+              >
+                Reply {{ i + 1 }} - {{ reply.get('userHandle')?.value || 'No Handle' }}
+              </button>
+            </h2>
+            <div [id]="'collapse-' + i" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <div [formGroupName]="i" class="reply-form-group">
+                  <label>Reply {{ i + 1 }} User Avatar URL</label>
+                  <input type="text" formControlName="userIcon" class="form-control" />
 
-          <label>Reply {{ i + 1 }} User Avatar URL</label>
-          <input type="text" formControlName="userIcon" class="form-control" />
+                  <label>Reply {{ i + 1 }} Name</label>
+                  <input type="text" formControlName="userName" class="form-control" />
+                  <label>Reply {{ i + 1 }} Handle</label>
+                  <input type="text" formControlName="userHandle" class="form-control" />
+                  <label>Reply {{ i + 1 }} To</label>
+                  <input type="text" formControlName="replyTo" class="form-control" />
 
-          <label>Reply {{ i + 1 }} Name</label>
-          <input type="text" formControlName="userName" class="form-control" />
-          <label>Reply {{ i + 1 }} Handle</label>
-          <input type="text" formControlName="userHandle" class="form-control" />
-          <label>Reply {{ i + 1 }} To</label>
-          <input type="text" formControlName="replyTo" class="form-control" />
+                  <label>
+                    <input type="checkbox" formControlName="isVerified" class="form-check-input" />
+                    Reply {{ i + 1 }} User is Verified
+                  </label>
+                  <br />
 
-          <label>
-            <input type="checkbox" formControlName="isVerified" class="form-check-input" />
-            Reply {{ i + 1 }} User is Verified
-          </label>
-          <br />
+                  <label>Reply {{ i + 1 }} Timestamp</label>
+                  <input type="text" formControlName="date" class="form-control" />
+                  <label>Reply {{ i + 1 }} Message</label>
+                  <textarea formControlName="message" class="form-control" rows="2"></textarea>
+                  <label>
+                    <input type="checkbox" formControlName="hasImage" class="form-check-input" />
+                    Add Image to Reply {{ i + 1 }}
+                  </label>
+                  <br />
+                  @if (form.get('replies')?.get(i.toString())?.get('hasImage')?.value) {
+                    <label>Reply {{ i + 1 }} Image URL</label>
+                    <input type="text" formControlName="imageUrl" class="form-control" />
+                  }
 
-          <label>Reply {{ i + 1 }} Timestamp</label>
-          <input type="text" formControlName="date" class="form-control" />
-          <label>Reply {{ i + 1 }} Message</label>
-          <textarea formControlName="message" class="form-control" rows="2"></textarea>
-          <small class="form-text"
-            >Automatic link formatting are applied to hashtags, URLs, and @mentions.</small
-          >
-          <br />
-          <label>
-            <input type="checkbox" formControlName="hasImage" class="form-check-input" />
-            Add Image to Reply {{ i + 1 }}
-          </label>
-          <br />
-          @if (form.get('replies')?.get(i.toString())?.get('hasImage')?.value) {
-            <label>Reply {{ i + 1 }} Image URL</label>
-            <input type="text" formControlName="imageUrl" class="form-control" />
-          }
-
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <label>{{ i + 1 }} Replies</label>
-                <input type="number" formControlName="replyNumber" class="form-control" />
-              </div>
-              <div class="col">
-                <label>{{ i + 1 }} Shares</label>
-                <input type="number" formControlName="shareNumber" class="form-control" />
-              </div>
-              <div class="col">
-                <label>{{ i + 1 }} Likes</label>
-                <input type="number" formControlName="likeNumber" class="form-control" />
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <label>{{ i + 1 }} Replies</label>
+                        <input type="number" formControlName="replyNumber" class="form-control" />
+                      </div>
+                      <div class="col">
+                        <label>{{ i + 1 }} Shares</label>
+                        <input type="number" formControlName="shareNumber" class="form-control" />
+                      </div>
+                      <div class="col">
+                        <label>{{ i + 1 }} Likes</label>
+                        <input type="number" formControlName="likeNumber" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="d-flex justify-content-end">
+                    <button type="button" (click)="removeReply(i)" class="btn btn-danger btn-sm">
+                      Remove Reply {{ i + 1 }}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <button type="button" (click)="removeReply(i)" class="btn btn-danger btn-sm">
-            Remove Reply {{ i + 1 }}
-          </button>
-        </div>
-      }
+        }
+      </div>
     </div>
 
     <button type="button" (click)="addReply()" class="btn btn-primary btn-sm">+ Add Reply</button>

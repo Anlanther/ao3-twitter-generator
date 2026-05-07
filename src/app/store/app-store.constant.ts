@@ -7,7 +7,8 @@ export const initialState: AppState = {
     image: 'https://i.imgur.com/Q31haWS.jpg',
     isVerified: true,
   },
-  message: 'This is an example tweet.',
+  message:
+    'This is an example tweet.<br> It can include line breaks and other formatting like #hashtags @mentions and www.example.com links.',
   date: 'Jan 1, 2024',
   time: '12:00 PM',
   imageStatus: {

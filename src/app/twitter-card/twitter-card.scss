@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
   margin-bottom: 1rem;
 
   .download-btn {
@@ -10,7 +9,8 @@
     background-color: #1d9bf0;
     color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
   }
 }
 
