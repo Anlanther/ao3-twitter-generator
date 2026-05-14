@@ -105,7 +105,7 @@
 
     <div class="accordion" id="accordionPanelsStayOpenExample">
       <div formArrayName="replies" class="replies-array">
-        @for (reply of repliesArray.controls; track $index; let i = $index) {
+        @for (reply of repliesArray.controls; track reply; let i = $index) {
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button
